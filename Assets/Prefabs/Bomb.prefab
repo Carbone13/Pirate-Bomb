@@ -171,11 +171,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 7976640456355447817}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b5585abd2ac6c3449cb21b437c8d8d6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014789879, y: -0.24321017}
+  m_Offset: {x: 0.014789879, y: -0.23908356}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,7 +186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47786033, y: 0.5831948}
+  m_Size: {x: 0.47786033, y: 0.5749416}
   m_EdgeRadius: 0
 --- !u!50 &7976640456355447818
 Rigidbody2D:
@@ -243,7 +243,7 @@ MonoBehaviour:
   burnState: 0
   bombForce: 1.5
   bombRadius: 1
-  timeBeforeExplosion: 5
+  timeBeforeExplosion: 3.5
   owner: {fileID: 0}
   LoadingBar: {fileID: 7976640456362789265}
   getter: {fileID: 1902111522906499058}
