@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("In-Game Debug")]
-    public Vector2 velocity;
     public bool _Move;
     public bool _Grounded;
     public bool _Jump;
@@ -55,10 +54,9 @@ public class PlayerMovement : MonoBehaviour
         _Grounded = false;
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius / 100);
-        
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject && rb.velocity.y == 0)
+			if (colliders[i].gameObject != gameObject && rb.velocity.y > -0.1 && rb.velocity.y < 0.1 && colliders[i].gameObject.layer != 10)
 			{
 				_Grounded = true;
                 if(!wasGrounded){
@@ -71,13 +69,16 @@ public class PlayerMovement : MonoBehaviour
 			} 
 		}
 
+        if(rb.velocity.y == 0){
+            GetComponent<BoxCollider2D>().enabled = _Grounded;
+        }
         Move ();
     }
 
     private void Move () {
 
         _Jump = !_Grounded;
-        Vector3 targetMove = new Vector2(x * 4 * speed, rb.velocity.y);
+        Vector3 targetMove = new Vector2(x * 4 * 1.2f * 40 * speed * Time.fixedDeltaTime, rb.velocity.y);
         if(targetMove.x == 0){
             // Stop without smoothing
             rb.velocity = Vector3.SmoothDamp(rb.velocity, targetMove, ref refVelocity, 0);
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(jump && !_Jump){
             _Jump = true;
-            rb.AddForce(new Vector2(0f, jumpForce * 40));
+            rb.AddForce(new Vector2(0f, jumpForce * 55 * 52 * Time.fixedDeltaTime));
             print("jump");
         }
 
