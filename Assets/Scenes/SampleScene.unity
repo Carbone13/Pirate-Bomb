@@ -323,6 +323,8 @@ MonoBehaviour:
   Collider: {fileID: 56364918}
   Animator: {fileID: 586619987}
   groundCheck: {fileID: 1674110108}
+  toolbarTab: 1
+  currentTab: Settings
 --- !u!61 &56364918
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,12 +360,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 56364914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9facd7706f3bde4aa0382479331702d, type: 3}
+  m_Script: {fileID: 11500000, guid: 989307596e11ad34e8b45d0cffbc8b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeRate: 1
+  isBomberman: 1
+  isBaldPirate: 0
+  isCucumber: 0
+  isGuy: 0
+  isCaptain: 0
+  isWhale: 0
+  bombRate: 1
   bombPrefab: {fileID: 7976640456355447817, guid: 15a64cf5e7e6cd24c90c1b10cf346ba4,
     type: 3}
+  toolbar1: 0
+  toolbar2: 4
+  currentTab: Bomber Man
 --- !u!58 &56364920
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -685,7 +696,7 @@ MonoBehaviour:
   m_RefResolutionX: 520
   m_RefResolutionY: 256
   m_UpscaleRT: 0
-  m_PixelSnapping: 0
+  m_PixelSnapping: 1
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0

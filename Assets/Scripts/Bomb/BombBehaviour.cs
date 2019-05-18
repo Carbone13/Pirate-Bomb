@@ -11,7 +11,7 @@ public class BombBehaviour : MonoBehaviour
     public float timeBeforeExplosion;
 
     Animator anim;
-    public Bomberman owner;
+    public Characters owner;
     public Animator LoadingBar;
     public Getter getter;
 

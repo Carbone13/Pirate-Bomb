@@ -44,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
     bool jump;
     Vector3 refVelocity = Vector3.zero;
 
+    //Custom Editor
+    [HideInInspector] public int toolbarTab;
+    [HideInInspector] public string currentTab;
+
     private void Update() {
         x = Input.GetAxisRaw("Horizontal");
         jump = Input.GetButtonDown("Jump");
