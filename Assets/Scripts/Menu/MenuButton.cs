@@ -20,7 +20,6 @@ public class MenuButton : MonoBehaviour
 
 				if(Input.GetAxis ("Submit") == 1) {
 					animator.SetBool ("pressed", true);
-					OnClick.Invoke();
 				} else if (animator.GetBool ("pressed")){
 					animator.SetBool ("pressed", false);
 					animatorFunctions.disableOnce = true;
@@ -29,4 +28,8 @@ public class MenuButton : MonoBehaviour
 				animator.SetBool ("selected", false);
 			}
     }
+
+		public void InvokeClick () {
+			OnClick.Invoke();
+		}
 }
