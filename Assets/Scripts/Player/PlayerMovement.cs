@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     public Transform groundCheck;
+    public GameObject RunParticle;
 
     float x;
     bool jump;
@@ -102,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
         _Move = x != 0;
         _Fall = rb.velocity.y < 0;
+        RunParticle.SetActive(_Move && _Grounded);
 
         AnimatorUpdate();
     }

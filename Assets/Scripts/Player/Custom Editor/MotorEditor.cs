@@ -25,6 +25,7 @@ public class MotorEditor : Editor
     public SerializedProperty Collider;
     public SerializedProperty Animator;
     public SerializedProperty groundCheck;
+    public SerializedProperty runParticle;
 
     private void OnEnable() {
         myTarget = (PlayerMovement)target;
@@ -46,6 +47,7 @@ public class MotorEditor : Editor
         Collider = soTarget.FindProperty("Collider");
         Animator = soTarget.FindProperty("Animator");
         groundCheck = soTarget.FindProperty("groundCheck");
+        runParticle = soTarget.FindProperty("RunParticle");
     }
 
     public override void OnInspectorGUI() {
@@ -100,6 +102,7 @@ public class MotorEditor : Editor
                 EditorGUILayout.PropertyField(Collider);
                 EditorGUILayout.PropertyField(Animator);
                 EditorGUILayout.PropertyField(groundCheck);
+                EditorGUILayout.PropertyField(runParticle);
                 break;
         }
 
