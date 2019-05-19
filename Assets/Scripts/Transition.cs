@@ -11,6 +11,7 @@ public class Transition : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(transform.parent.gameObject);
+        GetComponent<CanvasGroup>().alpha = 1;
         this.gameObject.SetActive(false);
     }
 
