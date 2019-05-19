@@ -18,7 +18,6 @@ public class MenuButtonController : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(!active) return;
 
 		if(useKeyboard){
 

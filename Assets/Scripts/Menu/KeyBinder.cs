@@ -33,13 +33,13 @@ public class KeyBinder : MonoBehaviour
 		{
             switch(keyBindParent.GetChild(i).name){
                 case "Left":
-                    keyBindParent.GetChild(i).GetComponentInChildren<TMP_Text>().text = InputManager.manager.left.ToString();
+                    keyBindParent.GetChild(i).GetComponentInChildren<TMP_Text>().text = InputManager.manager.horizontal.negative.ToString();
                     break;
                 case "Right":
-                    keyBindParent.GetChild(i).GetComponentInChildren<TMP_Text>().text = InputManager.manager.right.ToString();
+                    keyBindParent.GetChild(i).GetComponentInChildren<TMP_Text>().text = InputManager.manager.horizontal.positive.ToString();
                     break;
                 case "Jump":
-                    keyBindParent.GetChild(i).GetComponentInChildren<TMP_Text>().text = InputManager.manager.jump.ToString();
+                    keyBindParent.GetChild(i).GetComponentInChildren<TMP_Text>().text = InputManager.manager.jump.first.ToString();
                     break;
             }
 		}
@@ -104,19 +104,19 @@ public class KeyBinder : MonoBehaviour
 		switch(keyName)
 		{
             case "left":
-                InputManager.manager.left = newKey; //Set forward to new keycode
-                buttonText.text = InputManager.manager.left.ToString(); //Set button text to new key
-                PlayerPrefs.SetString("leftKey", InputManager.manager.left.ToString()); //save new key to PlayerPrefs
+                InputManager.manager.horizontal.negative = newKey;
+                buttonText.text = InputManager.manager.horizontal.negative.ToString(); //Set button text to new key
+                PlayerPrefs.SetString("horizontalNegative", InputManager.manager.horizontal.negative.ToString()); //save new key to PlayerPrefs
                 break;
             case "right":
-                InputManager.manager.right = newKey; //set backward to new keycode
-                buttonText.text = InputManager.manager.right.ToString(); //set button text to new key
-                PlayerPrefs.SetString("rightKey", InputManager.manager.right.ToString()); //save new key to PlayerPrefs
+                InputManager.manager.horizontal.positive = newKey;
+                buttonText.text = InputManager.manager.horizontal.positive.ToString(); //set button text to new key
+                PlayerPrefs.SetString("horizontalPositive", InputManager.manager.horizontal.positive.ToString()); //save new key to PlayerPrefs
                 break;
             case "jump":
-                InputManager.manager.jump = newKey; //set left to new keycode
-                buttonText.text = InputManager.manager.jump.ToString(); //set button text to new key
-                PlayerPrefs.SetString("jumpKey", InputManager.manager.jump.ToString()); //save new key to playerprefs
+                InputManager.manager.jump.first = newKey;
+                buttonText.text = InputManager.manager.jump.first.ToString(); //set button text to new key
+                PlayerPrefs.SetString("jumpFirst", InputManager.manager.jump.first.ToString()); //save new key to playerprefs
                 break;
 		}
 

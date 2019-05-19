@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(MenuButton))]
 public class ButtonEditor : Editor
 {
@@ -89,3 +90,4 @@ public class ButtonEditor : Editor
         }   
     }
 }
+#endif

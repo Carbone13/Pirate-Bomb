@@ -49,8 +49,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public string currentTab;
 
     private void Update() {
-        x = Input.GetAxisRaw("Horizontal");
-        jump = Input.GetButtonDown("Jump");
+        x = InputManager.GetAxis(InputManager.manager.horizontal);
+        jump = InputManager.isPressed(InputManager.manager.jump);
     }
 
     private void FixedUpdate() {

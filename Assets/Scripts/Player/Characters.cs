@@ -22,7 +22,7 @@ public class Characters : MonoBehaviour
 
     private void Update() {
         if(isBomberman){
-            if(Input.GetButtonDown("Fire1") && Time.time >= t){
+            if(InputManager.isPressed(InputManager.manager.primaryAttack) && Time.time >= t){
                 bomberman_PlaceBomb();
                 t = Time.time + 1 / bombRate;
             }

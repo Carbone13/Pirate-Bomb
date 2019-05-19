@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Characters))]
 public class CharacterEditor : Editor
 {
@@ -120,3 +121,4 @@ public class CharacterEditor : Editor
         #endregion  
     }
 }
+#endif

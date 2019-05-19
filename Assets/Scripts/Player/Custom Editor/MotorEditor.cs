@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(PlayerMovement))]
 public class MotorEditor : Editor
 {
@@ -107,3 +108,4 @@ public class MotorEditor : Editor
         }   
     }
 }
+#endif

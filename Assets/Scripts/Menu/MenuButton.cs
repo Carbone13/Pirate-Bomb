@@ -22,13 +22,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     // Update is called once per frame
     void Update()
     {
-		if(!menuButtonController.active) return;
+		
 
 		if(menuButtonController.useKeyboard){
 			if(menuButtonController.index == thisIndex){
 				animator.SetBool("selected", true);
 
-				if(Input.GetAxis ("Submit") == 1 && enabled){
+				if(Input.GetAxis("Submit") > 0){
 					animator.SetBool("pressed", true);
 					if(disableAllOnClick){
 						menuButtonController.active = false;
@@ -46,7 +46,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 			if(menuButtonController.index == thisIndex){
 				animator.SetBool("selected", true);
 
-				if(Input.GetButtonDown("Fire1") && hovered && enabled){
+				if(Input.GetButtonDown("Fire1") && hovered){
 					animator.SetBool("pressed", true);
 					if(disableAllOnClick){
 						menuButtonController.active = false;
@@ -78,10 +78,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         if(menuButtonController.useMouse){
-			if(!menuButtonController.useKeyboard){
-				menuButtonController.index = -1;
-			}
-			hovered = false;
-		}
+					if(!menuButtonController.useKeyboard){
+						menuButtonController.index = -1;
+				}
+					hovered = false;
+				}
     }
 }
