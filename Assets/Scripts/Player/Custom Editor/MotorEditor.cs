@@ -24,8 +24,10 @@ public class MotorEditor : Editor
     public SerializedProperty Rigidbody;
     public SerializedProperty Collider;
     public SerializedProperty Animator;
+    public SerializedProperty AudioSource;
     public SerializedProperty groundCheck;
     public SerializedProperty runParticle;
+    public SerializedProperty landClip;
 
     private void OnEnable() {
         myTarget = (PlayerMovement)target;
@@ -46,8 +48,10 @@ public class MotorEditor : Editor
         Rigidbody = soTarget.FindProperty("Rigidbody");
         Collider = soTarget.FindProperty("Collider");
         Animator = soTarget.FindProperty("Animator");
+        AudioSource = soTarget.FindProperty("AudioSource");
         groundCheck = soTarget.FindProperty("groundCheck");
         runParticle = soTarget.FindProperty("RunParticle");
+        landClip = soTarget.FindProperty("LandClip");
     }
 
     public override void OnInspectorGUI() {
@@ -103,6 +107,9 @@ public class MotorEditor : Editor
                 EditorGUILayout.PropertyField(Animator);
                 EditorGUILayout.PropertyField(groundCheck);
                 EditorGUILayout.PropertyField(runParticle);
+                EditorGUILayout.LabelField("Audio", EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(AudioSource);
+                EditorGUILayout.PropertyField(landClip);
                 break;
         }
 

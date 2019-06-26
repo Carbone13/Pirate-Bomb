@@ -38,8 +38,15 @@ public class PlayerMovement : MonoBehaviour
             return Animator;
         }
     }
+    public AudioSource AudioSource;
+    AudioSource source {
+        get {
+            return AudioSource;
+        }
+    }
     public Transform groundCheck;
     public GameObject RunParticle;
+    public AudioClip LandClip;
 
     float x;
     bool jump;
@@ -58,17 +65,13 @@ public class PlayerMovement : MonoBehaviour
         bool wasGrounded = _Grounded;
         _Grounded = false;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius / 100);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius / 75);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject && rb.velocity.y > -0.1 && rb.velocity.y < 0.1 && colliders[i].gameObject.layer != 10)
+			if (colliders[i].gameObject != gameObject && rb.velocity.y > -Mathf.Epsilon && rb.velocity.y < Mathf.Epsilon && colliders[i].gameObject.layer != 10)
 			{
 				_Grounded = true;
                 if(!wasGrounded){
-                    if(_Jump){
-                        anim.SetBool("doingJump", false);
-                        anim.SetTrigger("land");
-                    }
                     _Jump = false;
                 }
 			} 
@@ -77,11 +80,13 @@ public class PlayerMovement : MonoBehaviour
         if(rb.velocity.y == 0){
             GetComponent<BoxCollider2D>().enabled = _Grounded;
         }
+
         Move ();
     }
 
     private void Move () {
 
+        bool wasFalling = _Fall;
         _Jump = !_Grounded;
         Vector3 targetMove = new Vector2(x * 4 * 1.2f * 40 * speed * Time.fixedDeltaTime, rb.velocity.y);
         if(targetMove.x == 0){
@@ -95,15 +100,20 @@ public class PlayerMovement : MonoBehaviour
         if(jump && !_Jump){
             _Jump = true;
             rb.AddForce(new Vector2(0f, jumpForce * 55 * 52 * Time.fixedDeltaTime));
-            print("jump");
         }
 
         if(x > 0) _FacingRight = true;
         if(x < 0) _FacingRight = false;   
 
         _Move = x != 0;
-        _Fall = rb.velocity.y < 0;
+        _Fall = rb.velocity.y < -Mathf.Epsilon;
         RunParticle.SetActive(_Move && _Grounded);
+
+        if(!_Fall && wasFalling && _Grounded){
+            anim.SetBool("doingJump", false);
+            anim.SetTrigger("land");
+            source.PlayOneShot(LandClip);
+        }
 
         AnimatorUpdate();
     }
