@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Carbone13;
 using UnityEngine;
 
 public class Characters : MonoBehaviour
@@ -32,5 +31,7 @@ public class Characters : MonoBehaviour
     public void bomberman_PlaceBomb () {
         GameObject _bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
         _bomb.GetComponent<BombBehaviour>().owner = this;
+
+        GameObject.FindWithTag("Tutorial").GetComponent<MissionSystem>().leftFire = true;
     }
 }
