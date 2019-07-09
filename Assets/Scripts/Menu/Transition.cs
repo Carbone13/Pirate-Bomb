@@ -10,17 +10,11 @@ public class Transition : MonoBehaviour
     
     void Start()
     {
-        DontDestroyOnLoad(transform.parent.gameObject);
-        GetComponent<CanvasGroup>().alpha = 1;
+        DontDestroyOnLoad(transform.parent.transform.parent.gameObject);
         this.gameObject.SetActive(false);
     }
 
     public void OnEndExpand () {
-        for(int i = 0; i < transform.parent.childCount; i++){
-            if(transform.parent.GetChild(i) != this.transform){
-                Destroy(transform.parent.GetChild(i).gameObject);
-            }
-        }
         GetComponent<Animator>().SetTrigger("Close");
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }

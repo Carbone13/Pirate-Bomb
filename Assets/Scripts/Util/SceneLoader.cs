@@ -18,4 +18,11 @@ public class SceneLoader : MonoBehaviour
     public void QuitGame () {
         Application.Quit();
     }
+    public void Option() {
+        LoadScene(2);
+    }
+
+    public void MainMenu () {
+        LoadScene(1);
+    }
 }

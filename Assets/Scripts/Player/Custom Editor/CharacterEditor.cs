@@ -18,6 +18,7 @@ public class CharacterEditor : Editor
     // Bomberman
     public SerializedProperty bombRate;
     public SerializedProperty bombPrefab;
+    public SerializedProperty bombCheck;
 
     private void OnEnable() {
         myTarget = (Characters)target;
@@ -32,6 +33,7 @@ public class CharacterEditor : Editor
 
         bombRate = soTarget.FindProperty("bombRate");
         bombPrefab = soTarget.FindProperty("bombPrefab");
+        bombCheck = soTarget.FindProperty("bombCheck");
     }
 
     public override void OnInspectorGUI() {
@@ -95,6 +97,7 @@ public class CharacterEditor : Editor
                 if(myTarget.isBomberman){
                     EditorGUILayout.PropertyField(bombRate);
                     EditorGUILayout.PropertyField(bombPrefab);
+                    EditorGUILayout.PropertyField(bombCheck);
                 }
                 break;
             case "Bald Pirate":

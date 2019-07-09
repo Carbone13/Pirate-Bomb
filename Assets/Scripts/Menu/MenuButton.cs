@@ -11,7 +11,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 	public AnimatorFunctions animatorFunctions;
 	public int thisIndex;
 	public bool disableAllOnClick;
-	public Transition fader;
 	public int sceneToLoad;
 	public UnityEvent OnClick;
 	bool hovered;
@@ -63,9 +62,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 	public void InvokeClick () {
 			OnClick.Invoke();
-			fader.gameObject.SetActive(true);
-			if(sceneToLoad != -1) fader.sceneToLoad = sceneToLoad;
-		}
+	}
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {

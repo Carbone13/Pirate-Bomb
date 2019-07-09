@@ -11,7 +11,6 @@ public class ButtonEditor : Editor
     public SerializedProperty menuButtonController;
     public SerializedProperty animator;
     public SerializedProperty animatorFunctions;
-    public SerializedProperty fader;
 
     public SerializedProperty thisIndex;
     public SerializedProperty disableAllOnClick;
@@ -27,7 +26,6 @@ public class ButtonEditor : Editor
         menuButtonController = soTarget.FindProperty("menuButtonController");
         animator = soTarget.FindProperty("animator");
         animatorFunctions = soTarget.FindProperty("animatorFunctions");
-        fader = soTarget.FindProperty("fader");
 
         thisIndex = soTarget.FindProperty("thisIndex");
         disableAllOnClick = soTarget.FindProperty("disableAllOnClick");
@@ -78,7 +76,6 @@ public class ButtonEditor : Editor
                 EditorGUILayout.PropertyField(menuButtonController);
                 EditorGUILayout.PropertyField(animator);
                 EditorGUILayout.PropertyField(animatorFunctions);
-                EditorGUILayout.PropertyField(fader);
                 break;
             case "Events":
                 EditorGUILayout.PropertyField(OnClick);

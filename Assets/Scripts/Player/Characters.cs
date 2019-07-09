@@ -12,17 +12,31 @@ public class Characters : MonoBehaviour
     // Bomber Man
     public float bombRate = 1f;
     public GameObject bombPrefab;
-    float t;
+    public Getter bombCheck;
+    float bomberman_T;
+
+    // Bald Pirate
+
+    // Cucumber
+
+    // Big Guy
+
+    // Captain
+
+    // Whale
 
     [HideInInspector] public int toolbar1;
     [HideInInspector] public int toolbar2;
     [HideInInspector] public string currentTab;
 
     private void Update() {
-        if(isBomberman){
-            if(InputManager.isPressed(InputManager.manager.primaryAttack) && Time.time >= t){
+        if(InputManager.isPressed(InputManager.manager.primaryAttack)){
+            if(isBomberman && Time.time >= bomberman_T && bombCheck.go.Count == 0){
                 bomberman_PlaceBomb();
-                t = Time.time + 1 / bombRate;
+                bomberman_T = Time.time + 1 / bombRate;
+            }
+            if(isBaldPirate){
+
             }
         }
     }
@@ -32,5 +46,9 @@ public class Characters : MonoBehaviour
         _bomb.GetComponent<BombBehaviour>().owner = this;
 
         GameObject.FindWithTag("Tutorial").GetComponent<MissionSystem>().leftFire = true;
+    }
+
+    public void baldPirate_Attack () {
+        
     }
 }
